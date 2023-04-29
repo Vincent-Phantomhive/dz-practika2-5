@@ -110,4 +110,17 @@ function polindrom() {
         console.log('Не полиндром')
     }
 }
-polindrom()
+// polindrom()
+
+// Написать конвертор валют. Пользователь вводит количе-
+// ство USD, выбирает, в какую валюту хочет перевести: EUR,
+// UAN или AZN, и получает в ответ соответствующую сумму.
+
+function valuta() {
+    let USD = prompt('Введите кол-во USD:')
+    let val = prompt('Выберете валюту, в которую перевести: EUR, UAH, AZN')
+    let EUR = 1.1043
+    let UAH = 0.0271
+    let AZN = 0.5882
+    if 
+}
