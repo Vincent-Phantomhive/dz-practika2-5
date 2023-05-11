@@ -5,7 +5,7 @@ import './style.css'
 // (18_60) или пенсионером (60– ...).
 
 function age() { 
-let x = prompt('Введите ваш возраст:') 
+let x = +(prompt('Введите ваш возраст:') as string)
 let y = x > 0 && x < 2 ? 'Младенец' :
 x >= 2 && x < 12 ? 'Ребенок' :
 x >= 12 && x < 18 ? 'Подросток' :
@@ -20,7 +20,7 @@ console.log(y)
 // 2–@, 3–# и т. д).
 
 function sim() {
-    let num = +prompt('Введите цифру от 0 до 9:')
+    let num = +(prompt('Введите цифру от 0 до 9:') as string)
     switch(num) {
         case 1:
             console.log('!')
@@ -63,7 +63,7 @@ function sim() {
 // есть ли в нем одинаковые цифры.
 
 function sravnenie() {
-    let num = +prompt('Введите трёхзначное число:')
+    let num = +(prompt('Введите трёхзначное число:') as string)
     let num1 = num % 10
     let num2 = (num - num % 10) % 100 / 10
     let num3 = (num - num % 100) % 1000 / 100
@@ -82,7 +82,7 @@ function sravnenie() {
 // при этом не кратен 100
 
 function leapYear() {
-    let year = +prompt('Введите год:')
+    let year = +(prompt('Введите год:') as string)
     if(year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
         console.log('Високосный')
     }
@@ -97,7 +97,7 @@ function leapYear() {
 // лить, является ли оно палиндромом.
 
 function polindrom() {
-    let num = +prompt('Введите пятизначное число: ')
+    let num = +(prompt('Введите пятизначное число: ') as string)
     let num1 = num % 10
     let num2 = (num - num % 10) % 100 / 10
     // let num3 = (num - num % 100) % 1000 / 100
@@ -118,8 +118,8 @@ function polindrom() {
 
 function valuta() {
     let sum
-    let USD = +prompt('Введите кол-во USD:')
-    let val = +prompt('Выберете валюту, в которую перевести: 1 - EUR, 2 - UAH, 3 - AZN')
+    let USD = +(prompt('Введите кол-во USD:') as string)
+    let val = +(prompt('Выберете валюту, в которую перевести: 1 - EUR, 2 - UAH, 3 - AZN') as string)
     let EUR = 1.1043
     let UAH = 0.0271
     let AZN = 0.5882
@@ -144,4 +144,35 @@ function valuta() {
 
 // valuta()
 
+
+// 7. Запросить у пользователя сумму покупки и вывести сумму
+// к оплате со скидкой: от 200 до 300 – скидка будет 3%, от 300
+// до 500 – 5%, от 500 и выше – 7%.
+
+function sale() {
+    let sum = +(prompt('Введите сумму покупки:') as string)
+    if(sum < 200) {
+        console.log(`Скидки нет. К оплате: ${sum}`)
+    }
+    else {
+        if(sum >=200 && sum < 300) {
+            console.log(`Скидка 3%. К оплате: ${sum - (sum * 0.03)}`)
+        }
+        else {
+            if(sum >=300 && sum < 500) {
+                console.log(`Скидка 5%. К оплате: ${sum - (sum * 0.05)}`)
+            }
+            else {
+                if(sum >= 500) {
+                    console.log(`Скидка 7%. К оплате: ${sum - (sum * 0.07)}`)
+                }
+                else {
+                    console.log(`Проверьте правильность введённых данных.`)
+                }
+            }
+        }
+    }
+}
+
+// sale()
 
