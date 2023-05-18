@@ -176,3 +176,127 @@ function sale() {
 
 // sale()
 
+// 8. Запросить у пользователя длину окружности и периметр
+// квадрата. Определить, может ли такая окружность поме-
+// ститься в указанный квадрат.
+
+// Math.sqrt() - квадратный корень
+// D = C/Pi - диаметр через длину окружности
+function okrujnostIkvadrat() {
+    let okrujnost = +(prompt('Введите длину окружности:') as string)
+    let perimetr = +(prompt('Введите периметр квадрата:') as string)
+    let diametr = okrujnost / 3.14
+    let storona = perimetr / 4
+    if (diametr <= storona) {
+        console.log(`Окружность с длиной ${okrujnost} ПОМЕСТИТСЯ в квадрат с периметром ${perimetr}`)
+    }
+    else {
+        console.log(`Окружность с длиной ${okrujnost} НЕ поместится в квадрат с периметром ${perimetr}`)
+    }
+}
+
+// okrujnostIkvadrat()
+
+// 9. Задать пользователю 3 вопроса, в каждом вопросе по 3 ва-
+// рианта ответа. За каждый правильный ответ начисляется 2
+// балла. После вопросов выведите пользователю количество
+// набранных баллов.
+
+/* 
+1. Cколько лап у виверн?
+а) 2 !
+б) 4
+в) 6
+
+2. Как переводится среднеанглийское слово "wyvere", от которого происходит слово "виверна"?
+а) гадюка !
+б) ящерица
+г) динозавр
+
+3. Где чаще всего изображали виверн в средневековье?
+а) на окнах храмов
+б) на стенах замков
+в) на гербах !
+
+*/
+
+function viktorina() {
+    let i = 0
+    let firstQuestion = prompt('За каждый правильный ответ вы получаете по 2 балла.  1. Cколько лап у виверн? а) 2; б) 4; в) 6') 
+    let secondQuestion = prompt('2. Как переводится среднеанглийское слово "wyvere", от которого происходит слово "виверна"? а) гадюка; б) ящерица; г) динозавр')
+    let thirdQuestion = prompt('3. Где чаще всего изображали виверн в средневековье? а) на окнах храмов; б) на стенах замков; в) на гербах')
+    if (firstQuestion == 'a' || firstQuestion == 'а' || firstQuestion == '2') {
+        i = i + 2
+    }
+    if (secondQuestion == 'a' || secondQuestion == 'а' || secondQuestion == 'гадюка') {
+        i = i + 2
+    }
+    if (thirdQuestion == 'в' || thirdQuestion == 'на гербах') {
+        i = i + 2
+    }
+    console.log(`Вы набрали ${i} баллов`)
+}
+
+// viktorina()
+
+// Запросить дату (день, месяц, год) и вывести следующую
+// за ней дату. Учтите возможность перехода на следующий
+// месяц, год, а также високосный год.
+
+
+function data() {
+let day = +(prompt('Введите сегодняшнюю дату (только число):') as string)
+let month = +(prompt('Введите сегодняшний месяц(цифрой):') as string)
+let year = +(prompt('Введите сегодняшний год:') as string)
+if (day >= 28 && day <= 31) {
+    if (day == 31 && (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10)) {
+        day = 1
+        month++
+    }
+    else {
+        if (day == 31 && month == 12) {
+            year++
+            month = 1
+            day = 1
+            console.log(`Завтра будет ${day}.${month}.${year}`)
+        }
+        else {
+            if (day == 30 && (month == 4 || month == 6 || month == 9 || month == 11)) {
+                day = 1
+                month++
+                console.log(`Завтра будет ${day}.${month}.${year}`)
+            }
+            else {
+                if (day == 29 && month == 2) {
+                    day = 1
+                    month = 3
+                    console.log(`Завтра будет ${day}.${month}.${year}`)
+                }
+                else {
+                    if (day == 28 && month == 2) {
+                        if(year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
+                            day = 29
+                            console.log(`Завтра будет ${day}.${month}.${year}`)
+                        }
+                        else {
+                            day = 1
+                            month = 3
+                            console.log(`Завтра будет ${day}.${month}.${year}`)
+                            }
+                        } 
+                    else {
+                        day++
+                        console.log(`Завтра будет ${day}.${month}.${year}`)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    else {
+        day++
+        console.log(`Завтра будет ${day}.${month}.${year}`)
+        }
+}
+
+data()
